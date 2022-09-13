@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="Ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>오늘의집</title>
+    <meta name="description" content="예쁜 집 구경부터 제품 구매, 이사, 시공까지 오늘의집에서 한 번에! 지금 가입하면 누구나 총 10만 원 쿠폰팩!">
+    <meta property="og:title" content="인테리어 집꾸미기는 오늘의집">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ohou.se/">
+    <meta property="og:image" content="https://s3-ap-northeast-1.amazonaws.com/bucketplace-v2-development/uploads/default_images/open_graph_icon_2.png">
+    <link rel="stylesheet" href="./reset.css">
+    <style>
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div style="background-color: #00bbff; height: 50px; display: flex; width: 100%; align-items: center; justify-content: center">
+        <div>
+            <p style="color: white">첫 구매라면 누구나 최대 2만원 할인받기</p>
+        </div>
+        <p style="position: absolute; right: 0; margin-right: 36px; font-size: 30px; color: white">X</p>
+    </div>
+    <header>
+        <div style="border-bottom: 1px solid #EAEDEF;">
+            <div style="position: relative;">
+                <div style="max-width: 1256px; margin: 0 60px; padding: 0 60px; height: 80px; display: flex; align-items: center;">
+                    <p style="margin-right: 35px; font-size: 20px">오늘의 집</p>
+                    <div style="width: 370px; display: flex">
+                        <p style="color: #35C5F0; margin: 0 10px; padding: 21px 5px 15px;">커뮤니티</p>
+                        <p style="margin: 0 10px; padding: 21px 5px 15px;">스토어</p>
+                        <p style="margin: 0 10px; padding: 21px 5px 15px;">이사/시공/수리</p>
+                    </div>
+                    <div style="width:262px;display: flex; height: 40px; border: 1px solid #C2C8CC; border-radius: 4px; padding: 0 14px; align-items: center">
+                        <img src="https://www.kindacode.com/wp-content/uploads/2020/12/search.png" style="width: 23px;height: 25px"/>
+                        <input type="text" placeholder="통합검색" style="height: 100%; padding: 0 6px; vertical-align: middle; border: none" autocomplete="off" value>
+                    </div>
+                    <img style="width: 23px;height: 25px; margin: 0 10px" src="data:image/png;base64,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"/>
+                    <div style="display: flex; width: 200px; justify-content: space-around; margin-right: 20px">
+                        <a>로그인</a>
+                        <a>회원가입</a>
+                        <a>고객센터</a>
+                    </div>
+                    <button style="color: #FFFFFF; background-color: #35C5F0; border: none; width: 94px; height: 40px;border-radius: 4px;">
+                        글쓰기 ∨
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div style="border-bottom: 1px solid #EAEDEF;width: 100%;position: relative;height: 100%">
+            <nav style="width: 100%; height: 50px; background-color: white; display: flex; flex-direction: row; max-width: 1256px; padding: 0 60px;margin: 0 60px; align-items: center">
+                <a style="margin: 0 5px; padding: 12px 6px">홈</a>
+                <a style="margin: 0 5px; padding: 12px 6px">팔로잉</a>
+                <a style="margin: 0 5px; padding: 12px 6px">사진</a>
+                <a style="margin: 0 5px; padding: 12px 6px">집들이</a>
+                <a style="margin: 0 5px; padding: 12px 6px">노하우</a>
+                <a style="margin: 0 5px; padding: 12px 6px">전문가집들이</a>
+                <a style="margin: 0 5px; padding: 12px 6px">셀프가이드</a>
+                <a style="margin: 0 5px; padding: 12px 6px">질문과답변</a>
+                <a style="margin: 0 5px; padding: 12px 6px">3D인테리어</a>
+                <a style="margin: 0 5px; padding: 12px 6px">이벤트</a>
+            </nav>
+        </div>
+    </header>
+    <div style="width: 100%">
+        <div style="padding: 30px 0 0; width: 1136px; min-height: 1px; margin-right: auto; margin-left: auto; display: flex">
+            <div style="width: 847px; height: 564px; display: block; ">
+                <article>
+                    <div style="position:absolute">
+                        <img src="https://i.picsum.photos/id/925/847/564.jpg?hmac=5Bi61PVxQ0L2PvzIpX7sw1oyorn2b9VCg_3qoz9O9IM" style="border-radius: 6px; ">
+                    </div>
+                    <div style="position: relative">
+                        <div style="position: absolute; padding: 40px;">
+                            <div>
+                                <p>우리답게 채우는, 둘이 사는 집 리모델링기</p>
+                                <div><img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/166096428239841573.jpg?gif=1&amp;w=36&amp;h=36&amp;c=c" srcset="https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/166096428239841573.jpg?gif=1&amp;w=72&amp;h=72&amp;c=c 1.5x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/166096428239841573.jpg?gif=1&amp;w=72&amp;h=72&amp;c=c 2x,https://image.ohou.se/i/bucketplace-v2-development/uploads/users/profile_images/166096428239841573.jpg?gif=1&amp;w=144&amp;h=144&amp;c=c 3x"><span>tynfsy</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div style="width: 298px; height: 564px; padding: 0 10px 0 10px">
+                <article>
+                    <img src="https://i.picsum.photos/id/766/298/564.jpg?hmac=OUBtjJg92nzdCLGxpGj8Fm7IfDoZG30YAR5pFYjRWV8" style="border-radius: 6px; position: absolute">
+                </article>
+            </div>
+        </div>
+        <nav style="overflow: auto; width: 100%; max-width: 1256px; margin: 0 auto;">
+            <ul style="flex-wrap: nowrap; margin: 30px 0 20px; padding: 0 60px; display: flex; justify-content: space-around">
+                <li style="width: 113px; height:107px;">
+                    <a style="display: flex; flex-direction: column; align-items: center; justify-content: center">
+                        <img src="https://i.picsum.photos/id/108/90/78.jpg?hmac=q7Wie9dFyWQolF8y-rGqO-jxKkLJ7Fl6XFIjPK8prR8"/>
+                        <p style="margin-top: 8px;">쇼핑하기</p>
+                    </a>
+                </li>
+                 <li style="width: 113px; height:107px">
+                      <a style="display: flex; flex-direction: column; align-items: center; justify-content: center">
+                         <img src="https://i.picsum.photos/id/108/90/78.jpg?hmac=q7Wie9dFyWQolF8y-rGqO-jxKkLJ7Fl6XFIjPK8prR8"/>
+                         <p style="margin-top: 8px;">빠른배송</p>
+                     </a>
+                </li>
+                 <li style="width: 113px; height:107px">
+                      <a style="display: flex; flex-direction: column; align-items: center; justify-content: center">
+                         <img src="https://i.picsum.photos/id/108/90/78.jpg?hmac=q7Wie9dFyWQolF8y-rGqO-jxKkLJ7Fl6XFIjPK8prR8"/>
+                         <p style="margin-top: 8px;">N평집들이</p>
+                     </a>
+                </li>
+                 <li style="width: 113px; height:107px">
+                      <a style="display: flex; flex-direction: column; align-items: center; justify-content: center">
+                         <img src="https://i.picsum.photos/id/108/90/78.jpg?hmac=q7Wie9dFyWQolF8y-rGqO-jxKkLJ7Fl6XFIjPK8prR8"/>
+                         <p style="margin-top: 8px;">공간별사진</p>
+                     </a>
+                </li>
+                 <li style="width: 113px; height:107px">
+                      <a style="display: flex; flex-direction: column; align-items: center; justify-content: center">
+                         <img src="https://i.picsum.photos/id/108/90/78.jpg?hmac=q7Wie9dFyWQolF8y-rGqO-jxKkLJ7Fl6XFIjPK8prR8"/>
+                         <p style="margin-top: 8px;">리모델링</p>
+                     </a>
+                </li>
+                  <li style="width: 113px; height:107px">
+                       <a style="display: flex; flex-direction: column; align-items: center; justify-content: center">
+                          <img src="https://i.picsum.photos/id/108/90/78.jpg?hmac=q7Wie9dFyWQolF8y-rGqO-jxKkLJ7Fl6XFIjPK8prR8"/>
+                          <p style="margin-top: 8px;">쉬운이사</p>
+                      </a>
+                </li>
+                  <li style="width: 113px; height:107px">
+                       <a style="display: flex; flex-direction: column; align-items: center; justify-content: center">
+                          <img src="https://i.picsum.photos/id/108/90/78.jpg?hmac=q7Wie9dFyWQolF8y-rGqO-jxKkLJ7Fl6XFIjPK8prR8"/>
+                          <p style="margin-top: 8px;">오늘의딜</p>
+                      </a>
+                </li>
+                  <li style="width: 113px; height:107px">
+                       <a style="display: flex; flex-direction: column; align-items: center; justify-content: center">
+                          <img src="https://i.picsum.photos/id/108/90/78.jpg?hmac=q7Wie9dFyWQolF8y-rGqO-jxKkLJ7Fl6XFIjPK8prR8"/>
+                          <p style="margin-top: 8px;">플리마켓</p>
+                      </a>
+                </li>
+                  <li style="width: 113px; height:107px">
+                       <a style="display: flex; flex-direction: column; align-items: center; justify-content: center">
+                          <img src="https://i.picsum.photos/id/108/90/78.jpg?hmac=q7Wie9dFyWQolF8y-rGqO-jxKkLJ7Fl6XFIjPK8prR8"/>
+                          <p style="margin-top: 8px;">리퍼마켓</p>
+                      </a>
+                </li>
+                  <li style="width: 113px; height:107px">
+                       <a style="display: flex; flex-direction: column; align-items: center; justify-content: center">
+                          <img src="https://i.picsum.photos/id/108/90/78.jpg?hmac=q7Wie9dFyWQolF8y-rGqO-jxKkLJ7Fl6XFIjPK8prR8"/>
+                          <p style="margin-top: 8px;">리빙페어</p>
+                      </a>
+                </li>
+            </ul>
+        </nav>
+        <section style="margin: 30px auto; width: 1136px; max-width: 100%; box-sizing: border-box; min-height: 1px;">
+            <header style="display: flex; align-items: center; justify-content: space-between;width: 100%;margin-bottom: 20px;">
+                <h2 style="font-size: 20px; font-weight: 700;">오늘의 스토리</h2>
+            </header>
+        </section>
+        <section style="margin: 30px auto; width: 1136px; max-width: 100%; box-sizing: border-box; min-height: 1px;">
+            <header style="display: flex; align-items: center; justify-content: space-between;width: 100%;margin-bottom: 20px;">
+                <h2 style="font-size: 20px; font-weight: 700;">카테고리별 상품 찾기</h2>
+            </header>
+        </section>
+        <section style="margin: 30px auto; width: 1136px; max-width: 100%; box-sizing: border-box; min-height: 1px;">
+            <header style="display: flex; align-items: center; justify-content: space-between;width: 100%;margin-bottom: 20px;">
+                <h2 style="font-size: 20px; font-weight: 700;">오늘의딜</h2>
+                <a href="/experts/discovery?affect_type=Home" style="color: #35c5f0;font-weight: 700; display: block;text-decoration: none;">더보기</a>
+            </header>
+        </section>
+        <section style="margin: 30px auto; width: 1136px; max-width: 100%; box-sizing: border-box; min-height: 1px;">
+            <header style="display: flex; align-items: center; justify-content: space-between;width: 100%;margin-bottom: 20px;">
+                <h2 style="font-size: 20px; font-weight: 700;">오늘의 인기 사전</h2>
+                <a href="/experts/discovery?affect_type=Home" style="color: #35c5f0;font-weight: 700; display: block;text-decoration: none;">더보기</a>
+            </header>
+        </section>
+        <section style="margin: 30px auto; width: 1136px; max-width: 100%; box-sizing: border-box; min-height: 1px; display: flex; flex-wrap: wrap;">
+            <header style="display: flex; align-items: center; justify-content: space-between;width: 100%;margin-bottom: 20px;">
+                <h2 style="font-size: 20px; font-weight: 700;">유저들의 인테리어 시공리뷰</h2>
+                <a href="/experts/discovery?affect_type=Home" style="color: #35c5f0;font-weight: 700; display: block;text-decoration: none;">인테리어 전문가 더 찾기</a>
+            </header>
+            <div style="display: flex; justify-content: space-between; width: 100%">
+                <div>
+                    <img style="border-radius: 6px" src="https://i.picsum.photos/id/160/365/255.jpg?hmac=D_NRG3zosu5Qt-6Kme641URYNN5eMOHsmkA7a3eElp0"/>
+                    <div style="padding: 4px 0 0 12px; margin-bottom: 15px;">
+                        <div style="color: #35c5f0">★★★★★</div>
+                        <div style="width: 353px; height: 60px; font-size: 15px; line-height: 20px; overflow: hidden; word-break: break-word; text-overflow: ellipsis; -webkit-box-orient:vertical; -webkit-line-clamp:3; ">결론부터 먼저 말한다면 "아주 대 만족"입니다&nbsp;
+                            인테리어를 하기로 마음 먹으면서 업체를 고르는게 쉬운일이 아니더라구요.
+                            여러곳의 업체를 비교하면서&nbsp;지브로 사장님은 집상태를 꼼꼼히 보시고&nbsp;제가 요구한부분들의 시공 시의 여러 장단점을&nbsp;친절히 설명 해주셔서 믿음이 가드라구요.&nbsp;
+
+                            공사시작 전 엘리베이터 보양작업을 워낙 깔끔 꼼꼼하게&nbsp;&nbsp;해놓은걸보고는 같은 아파트에 사는 지인들이&nbsp;그것만봐도 공사가 잘될것같다고 할 정도로&nbsp;사장님이 모든 과정을 꼼꼼이 잘 챙겨주셨어요. 그리고 공사하는 전과정에 계속적으로 소통을 하면서 진행했고, 사장님이 고객 니즈도 맞추면서 전문가 의견도 추가해주시며&nbsp;잘 조율해주셔서 집이 예쁘게 잘 나와 너무 만족스럽네요~^^
+
+                            구축아파트다보니 올리모델링으로 진행할수밖에 없어&nbsp;비용적 측면에서 걱정을 마니했는데&nbsp;
+                            가격도 합리적이고 서비스도 알아서 센스있게&nbsp;
+                            많이 챙겨주셔서 너무 감사했어요~~^^
+
+                            주변얘기로는 공사후 하자보수가 빨리 안되서&nbsp;
+                            고생했다는 얘기도 들었는데&nbsp;
+                            지브로사장님은 공사가 마무리되고 하자보수도 즉각적으로처리해주셔서 마지막까지 책임감있게 처리해주셔서 감사했네요~
+
+                            지인들도 다들 집이 예쁘다고 해주니 너무 좋고&nbsp;
+                            정말 요즘에는 집이라는 공간이 주는 즐거움을&nbsp;
+                            느끼고 살고있네요~^^</div>
+                    </div>
+                </div>
+                <div>
+                    <img style="border-radius: 6px" src="https://i.picsum.photos/id/160/365/255.jpg?hmac=D_NRG3zosu5Qt-6Kme641URYNN5eMOHsmkA7a3eElp0"/>
+                    <div style="padding: 4px 0 0 12px; margin-bottom: 15px;">
+                        <div style="color: #35c5f0">★★★★★</div>
+                        <div style="width: 353px; height: 60px; font-size: 15px; line-height: 20px; overflow: hidden; word-break: break-word; text-overflow: ellipsis; -webkit-box-orient:vertical; -webkit-line-clamp:3; ">(계약과정)
+                            갑작스러운 입주로 급하게 찾던 중,
+                            집 앞 다봄사무실이 생각나, 포트폴리오를 참고하니
+                            너무 마음에 들었습니다!
+                            여러가지 질문에 답해드린 후, 1차 견적서를 받고 가격이 예산과 맞아 방문상담도 신청 !
+
+                            방문 후 도면 등을 참고, 원하는 스타일에 대한 방향을 말씀드리니 2차 견적서를 뽑아주셨습니다.
+                            평당, 시공당 정해진 금액이 있는듯 해 보여 큰 추가 금액(개인요구가 크지 않는이상)이 없어, 그자리에서 바로 계약금 걸고 진행하였습니다.
+
+                            (자재미팅)
+                            시공일정이 다가오면,  만들어진 단톡방에 일정등을 정리하여 올려주시고, 자재미팅을 사무실에서 하게됩니다. 작은 공간에 마법같은 ? ㅎㅎ 자재들이 어디서 다 튀어나와서 ~ ㅎㅎ 2시간 넘게 계속되는 선택으로 중간에 결정장애가 왔지만, 실장님이 큰 틀안에서 추천해주시고 방향을 잡아주십니다.
+
+                            (현장미팅)
+                            현장미팅 시 목반장님, 실장님과 다시 한 번 최종사항을 점검합니다.  그간 인테리어하면서 목작업의 중요성을 너무 알기에 ㅠ 긴장했는데 ! 목반장님 구석구석 돌아다니면서 현장봐주십니다.
+
+                            (작업)
+                            목작업, 도배, 마루, 타일, 화장실, 탄성, 샷시 전체적으로 마감도 훌륭하고 ㅎ 각 공정마다 전문가들이셔서 너무 만족합니다.  중간중간 걱정되서 방문했을때 작업반장님들께 잘부탁드린다하니, 한 반장님이 여기 다봄사장님 부부가 워낙 꼼꼼해서 고객보다 힘들다고 ㅋㅋ 하셨습니다.  ㅎㅎ 😊😊
+
+                            전기부분도 다봄스타일(?)이 있어 ~ 커튼박스 주방의 조명은 제가 딱히 원하는 걸 말씀드리지 않아 걱정스러웠는데 ! 정말 예쁩니다. 전기가격이 첨엔 좀 많아보였는데, 구석구석 조명과 라인등이 참말로 맘에 듭니다. 😍 다만 조명위치 콘센트 위치 등은 꼭 시공전 챙기면 좋을 것 같습니다.
+
+                            가구는 한샘 리바트 등 브랜드가 아니라 걱정했지만, 전체적인 모양은 예쁩니다. 다만 대부분의 사재가구가 그렇듯 가구 등급선택은 계약 전 본인이 챙겨야 할 것 같습니다 !
+
+                            (기타)
+                            단톡방은 처음엔 왜 만들어졌나아 민망했는데
+                            공정이 시작되면 중간중간 현장상황을 알려주시고 ~ 공사기간 초반에는 수시로 확인하는게 좋을 것 같습니다. 출근해서도 피시로 켜놓고 ㅎㅎ 다른 전화는 안받아도 실장님 전화는 무조건 받았습니다.
+
+                            중간중간 선택해야하는 상황에 넘 골치아플땐 실장님과 직원분들이 권해주시는 방향으로 진행했는데 ~ 지금은 그 부분들이 제일 만족 !! 스럽습니다.
+
+                            (as)
+                            일단 저희집은 제가 생각지도 못한 걸 고쳐?주겠다고 전화오셔서 ㅎㅎ -&gt; 정말 작은 사소한 부분 ! ㅎ
+                            남편이랑 저는 예전집을 떠올리며 그럼 고쳐야할 것 천지인디 ... ㅎ 하며 괜찮다 한 것도 있습니다 ㅋ
+                            수정사항은 단톡방을 통해 남기면, 바쁜시간 끝나시면 답변 주십니다.
+
+                            총평 😍
+                            그간 셀프로만 인테리어를 해도 ~ 만족(?)했는데
+                            여태 한 건 다 발로(?) 했구나 싶었습니다.
+
+                            이번 인테리어를 진행하면서,
+                            추구하는 느낌을 구현하는 업체을 선정하여
+                            나의 느낌을 녹여내는게 중요하다는 생각을 했습니다.
+
+                            다봄인테리어는 정말 다봄스러운 느낌이 딱 있고,
+                            거기에 나의 감성 한 스푼 넣어 완성할 수 있던 현장이였습니다.
+
+                            제가 제일 싫은게 공장처럼 찍어내는 인테리어라 그간 셀프로 하곤 했는데,
+                            이번엔 정말 하길 참 잘했다 싶습니다.
+
+                            몇년 후 다시 이사계획이 있는데,
+                            그때도 다봄팀분들과 만나고 싶습니다 ^^
+
+                            사업 너무너무너무 번창하면, 나중에 나 못할까봐 걱정되는
+                            인테리어 맛집 🍓🍓
+
+                            추천드립니다 ^^
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <img style="border-radius: 6px" src="https://i.picsum.photos/id/160/365/255.jpg?hmac=D_NRG3zosu5Qt-6Kme641URYNN5eMOHsmkA7a3eElp0"/>
+                    <div style="padding: 4px 0 0 12px; margin-bottom: 15px;">
+                        <div style="color: #35c5f0">★★★★★</div>
+                        <div style="width: 353px; height: 60px; font-size: 15px; line-height: 20px; overflow: hidden; word-break: break-word; text-overflow: ellipsis; -webkit-box-orient:vertical; -webkit-line-clamp:3; ">
+                            상담도 친절하게 해주시고 시공 과정에서 사진과 설명으로 꼼꼼히 챙겨 주셨어요. 가까운 곳으로 업체를 선정하다 보니 안심도 가고 기간 내에 마무리 잘 해주셔서  좋았습니다.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section style="margin: 30px auto; width: 1136px; max-width: 100%; box-sizing: border-box; min-height: 1px;">
+            <header style="display: flex; align-items: center; justify-content: space-between;width: 100%">
+                <h2 style="font-size: 20px; font-weight: 700;">오늘의 기획전</h2>
+                <a href="/experts/discovery?affect_type=Home" style="color: #35c5f0;font-weight: 700; display: block;text-decoration: none;">더보기</a>
+            </header>
+        </section>
+        <section style="margin: 30px auto; width: 1136px; max-width: 100%; box-sizing: border-box; min-height: 1px;">
+            <header style="display: flex; align-items: center; justify-content: space-between;width: 100%">
+                <h2 style="font-size: 20px; font-weight: 700;">프리미엄도 오늘의집!</h2>
+                <a href="/experts/discovery?affect_type=Home" style="color: #35c5f0;font-weight: 700; display: block;text-decoration: none;">더보기</a>
+            </header>
+        </section>
+        <section style="margin: 30px auto; width: 1136px; max-width: 100%; box-sizing: border-box; min-height: 1px;">
+            <header style="display: flex; align-items: center; justify-content: space-between;width: 100%">
+                <h2 style="font-size: 20px; font-weight: 700;">베스트</h2>
+            </header>
+        </section>
+        <section style="margin: 30px auto; width: 1136px; max-width: 100%; box-sizing: border-box; min-height: 1px;">
+            <div style="display: flex; justify-content: space-between;">
+                <a style="display: flex; align-items: center; justify-content: center;  background-color: #f5f5f5; margin-right: 20px; width:100%; height: 63px; border-radius: 6px;">
+                    <div style="background-color: #ff7777; border-radius: 40%/100%; width: 50px; height: 16px; display: flex">
+                        <p style="color:white; font-weight: bold; margin: auto auto; font-size: 12px">OPEN</p>
+                    </div>
+                    <p style="color: #424242; font-size: 15px; font-weight: 700; margin-left: 5px;">전문가 가입신청</p>
+                    <p style="margin-left: 20px; display: inline-block; vertical-align: 1px;color: #757575;font-size: 12px;">인테리어 전문가님! 오늘의집과 함께하세요 ></p>
+                </a>
+                <a style="display: flex; align-items: center; justify-content: center; background-color: #f5f5f5; width:100%; height: 63px; border-radius: 6px;">
+                    <p style="color: #424242; font-size: 15px; font-weight: 700;">사업자 구매 회원 전환</p>
+                    <p style="margin-left: 20px; display: inline-block; vertical-align: 1px; color: #757575; font-size: 12px;">사업자 회원에게 구매 시 혜택을 드립니다 ></p>
+                </a>
+            </div>
+        </section>
+    </div>
+    <footer style="padding: 30px 0; background-color: #F7F9FA;">
+        <div style="max-width: 1256px; margin: 0 auto; padding: 0 60px; box-sizing: border-box; font-size: 12px; line-height: 16px; position: relative; color: #2F3438;">
+            <div>
+                <a style="font-weight: 700;">고객센터 ></a>
+                <p style="font-size: 24px; line-height: 32px; font-weight: 700; margin-top: 6px;">1670-0876</p>
+                <p style="font-size: 12px; line-height: 16px; margin-top: 6px;">09:00~18:00 (주말, 공휴일은 오늘의집 직접배송 및 이사/시공/수리 문의에 한해 전화 상담 가능)</p>
+            </div>
+            <div style="position: absolute; top: 0; right: 46px; margin-top: 0;">
+                <a href="https://itunes.apple.com/kr/app/oneul-uijib-intelieo-gong/id1008236892" target="_blank" rel="noreferrer" aria-label="오늘의집 AppStore 링크 버튼" >
+                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.4421 2C20.6081 3.509 20.0101 4.996 19.1361 6.089C18.2241 7.165 16.7651 7.988 15.3441 7.882C15.1581 6.43 15.8781 4.886 16.6841 3.944C17.5951 2.875 19.1771 2.056 20.4421 2Z" fill="#2F3438"></path><path d="M25.0939 10.7049C24.9354 10.7995 22.3073 12.3681 22.3361 15.567C22.3691 19.43 25.7151 20.707 25.7561 20.721C25.7361 20.811 25.2321 22.564 23.9771 24.344C22.9291 25.911 21.8311 27.443 20.0871 27.471C19.258 27.4901 18.6981 27.2517 18.1148 27.0032C17.5062 26.7441 16.8721 26.474 15.8801 26.474C14.8284 26.474 14.1661 26.7527 13.5274 27.0215C12.9752 27.2539 12.4406 27.4789 11.6871 27.51C10.0261 27.571 8.7571 25.837 7.6711 24.284C5.5001 21.113 3.8101 15.348 6.0761 11.425C7.1741 9.501 9.1761 8.262 11.3161 8.229C12.2585 8.20974 13.1623 8.57291 13.9546 8.89128C14.5605 9.13474 15.1012 9.352 15.5441 9.352C15.9331 9.352 16.4586 9.14343 17.0711 8.90033C18.0364 8.51722 19.2177 8.04836 20.4211 8.175C21.2441 8.199 23.5861 8.5 25.0971 10.703L25.0939 10.7049Z" fill="#2F3438"></path></svg></a><a href="https://play.google.com/store/apps/details?id=net.bucketplace" target="_blank" rel="noreferrer" aria-label="오늘의집 PlayStore 링크 버튼" ><svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" ><path d="M4 3.80078C4 3.38215 4.07797 3.02846 4.21819 2.74808L16.3199 14.8498L4.21819 26.9515C4.07797 26.6711 4 26.3174 4 25.8988V3.80078Z" fill="#2F3438"></path><path d="M4.95817 27.6257C5.39093 27.7756 5.93793 27.7016 6.53119 27.3638L20.7369 19.2667L17.027 15.5569L4.95817 27.6257Z" fill="#2F3438"></path><path d="M17.7341 14.8498L21.6376 18.7533L25.9562 16.2918C27.3479 15.4988 27.3479 14.2008 25.9562 13.4068L21.6378 10.9461L17.7341 14.8498Z" fill="#2F3438"></path><path d="M20.7369 10.4328L6.53119 2.33578C6.13094 2.10784 5.75174 2 5.41448 2C5.25184 2 5.09896 2.02508 4.95817 2.07385L17.027 14.1427L20.7369 10.4328Z" fill="#2F3438"></path></svg></a><a href="https://story.kakao.com/ch/bucketplace" target="_blank" rel="noreferrer" aria-label="오늘의집 KakaoStory 링크 버튼" ><svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" ><path d="M19.0218 6H10.9785C10.4381 6 10 6.41655 10 6.93071V15.0895C10 15.6034 10.4381 16.02 10.9785 16.02H14.6868C14.6612 16.9276 14.2759 17.9228 13.6902 18.7928C13.1256 19.631 12.1975 20.4568 11.694 20.8516C11.681 20.8619 11.6682 20.8718 11.6561 20.8813C11.5474 20.9805 11.4682 21.0958 11.4665 21.2555C11.4648 21.3767 11.5309 21.4705 11.6044 21.5699L11.6233 21.5903L14.1907 24.3446C14.1907 24.3446 14.3162 24.4709 14.4199 24.4948C14.5371 24.5217 14.6696 24.525 14.7615 24.4573C19.2399 21.1617 19.8868 17.0294 19.9993 14.793C19.9995 14.7802 20 6.93071 20 6.93071C20 6.41655 19.5623 6 19.0218 6Z" fill="#828C94"></path></svg></a><a href="https://www.facebook.com/interiortoday" target="_blank" rel="noreferrer" aria-label="오늘의집 Facebook 링크 버튼" ><svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" ><path d="M16.6667 26V15H20V11.6154H16.6667V9.07692C16.6546 8.32134 16.7461 7.79153 18.3333 7.38462H20V4H16.6667C13.4663 4 12.2153 5.83909 12.5 9.07692V11.6154H10V15H12.5V26H16.6667Z" fill="#828C94"></path></svg></a><a href="https://www.instagram.com/todayhouse" target="_blank" rel="noreferrer" aria-label="오늘의집 Instagram 링크 버튼" ><svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" ><path d="M8.83977 15C8.83977 11.5978 11.5978 8.83977 15 8.83977C18.4022 8.83977 21.1602 11.5978 21.1602 15C21.1602 18.4022 18.4022 21.1602 15 21.1602C11.5978 21.1602 8.83977 18.4022 8.83977 15ZM15 18.9988C17.2084 18.9988 18.9988 17.2084 18.9988 15C18.9988 12.7916 17.2084 11.0012 15 11.0012C12.7916 11.0012 11.0012 12.7916 11.0012 15C11.0012 17.2084 12.7916 18.9988 15 18.9988Z" fill="#828C94"></path><path d="M21.4036 10.036C22.1987 10.036 22.8431 9.39144 22.8431 8.59639C22.8431 7.80134 22.1987 7.15686 21.4036 7.15686C20.6086 7.15686 19.9641 7.80134 19.9641 8.59639C19.9641 9.39144 20.6086 10.036 21.4036 10.036Z" fill="#828C94"></path><path d="M15 3.00377C11.742 3.00377 11.3335 3.01758 10.054 3.07596C8.7771 3.13425 7.9051 3.33701 7.142 3.63358C6.35315 3.94015 5.68415 4.35034 5.01724 5.01724C4.35034 5.68415 3.94015 6.35315 3.63358 7.14201C3.33701 7.9051 3.13424 8.7771 3.07596 10.054C3.01758 11.3335 3.00381 11.742 3.00381 15C3.00381 18.258 3.01758 18.6665 3.07596 19.946C3.13424 21.2229 3.33701 22.0949 3.63358 22.858C3.94015 23.6468 4.35034 24.3159 5.01724 24.9828C5.68415 25.6497 6.35315 26.0599 7.142 26.3664C7.9051 26.663 8.7771 26.8658 10.054 26.9241C11.3335 26.9824 11.742 26.9962 15 26.9962C18.258 26.9962 18.6665 26.9824 19.946 26.9241C21.2229 26.8658 22.0949 26.663 22.858 26.3664C23.6469 26.0599 24.3159 25.6497 24.9828 24.9828C25.6497 24.3159 26.0599 23.6469 26.3664 22.858C26.663 22.0949 26.8658 21.2229 26.9241 19.946C26.9824 18.6665 26.9962 18.258 26.9962 15C26.9962 11.742 26.9824 11.3335 26.9241 10.054C26.8658 8.7771 26.663 7.9051 26.3664 7.14201C26.0599 6.35315 25.6497 5.68415 24.9828 5.01724C24.3159 4.35034 23.6469 3.94015 22.858 3.63358C22.0949 3.33701 21.2229 3.13425 19.946 3.07596C18.6665 3.01758 18.258 3.00377 15 3.00377ZM15 5.16529C18.2031 5.16529 18.5825 5.17748 19.8475 5.2352C21.0171 5.28858 21.6523 5.48401 22.0751 5.64825C22.635 5.86586 23.0346 6.12586 23.4544 6.54563C23.8741 6.96539 24.1341 7.36506 24.3517 7.92496C24.516 8.34772 24.7114 8.98291 24.7648 10.1525C24.8225 11.4175 24.8347 11.7969 24.8347 15C24.8347 18.2032 24.8225 18.5825 24.7648 19.8475C24.7114 21.0171 24.516 21.6523 24.3517 22.0751C24.1341 22.635 23.8741 23.0346 23.4544 23.4544C23.0346 23.8742 22.635 24.1342 22.0751 24.3517C21.6523 24.516 21.0171 24.7114 19.8475 24.7648C18.5827 24.8225 18.2033 24.8347 15 24.8347C11.7967 24.8347 11.4173 24.8225 10.1525 24.7648C8.98291 24.7114 8.34772 24.516 7.925 24.3517C7.36505 24.1342 6.96539 23.8742 6.54562 23.4544C6.12586 23.0346 5.86586 22.635 5.64829 22.0751C5.48401 21.6523 5.28858 21.0171 5.2352 19.8475C5.17748 18.5825 5.16529 18.2032 5.16529 15C5.16529 11.7969 5.17748 11.4175 5.2352 10.1525C5.28858 8.98291 5.48401 8.34772 5.64829 7.92496C5.86586 7.36506 6.12586 6.96539 6.54562 6.54563C6.96539 6.12586 7.36505 5.86586 7.925 5.64825C8.34772 5.48401 8.98291 5.28858 10.1525 5.2352C11.4175 5.17748 11.7969 5.16529 15 5.16529Z" fill="#828C94"></path></svg></a><a href="https://blog.naver.com/bucket_place" target="_blank" rel="noreferrer" aria-label="오늘의집 NaverBlog 링크 버튼" ><svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" ><path d="M9.01887 11.8896C8.86199 11.8892 8.70853 11.9355 8.57793 12.0224C8.44733 12.1093 8.34545 12.233 8.28519 12.3779C8.22493 12.5227 8.20899 12.6822 8.2394 12.8361C8.26981 12.99 8.3452 13.1315 8.45602 13.2425C8.56684 13.3536 8.70812 13.4292 8.86196 13.46C9.01581 13.4907 9.17531 13.4751 9.32029 13.4151C9.46526 13.3552 9.58919 13.2535 9.67639 13.1231C9.76358 12.9927 9.81012 12.8393 9.81012 12.6824C9.81012 12.4724 9.72681 12.271 9.57847 12.1224C9.43013 11.9737 9.22887 11.89 9.01887 11.8896Z" fill="#828C94"></path><path d="M16.842 11.8083C16.6733 11.8083 16.5083 11.8584 16.368 11.9522C16.2277 12.046 16.1183 12.1793 16.0538 12.3353C15.9893 12.4912 15.9725 12.6628 16.0056 12.8283C16.0386 12.9938 16.12 13.1458 16.2395 13.265C16.3589 13.3843 16.5111 13.4654 16.6766 13.4981C16.8422 13.5308 17.0138 13.5137 17.1696 13.4489C17.3254 13.3841 17.4585 13.2745 17.5521 13.134C17.6456 12.9935 17.6954 12.8285 17.695 12.6597C17.6946 12.4337 17.6045 12.2172 17.4446 12.0576C17.2847 11.898 17.068 11.8083 16.842 11.8083Z" fill="#828C94"></path><path d="M23.9227 4.01764H7.07728C6.26114 4.01764 5.47842 4.34185 4.90131 4.91895C4.32421 5.49606 4 6.27877 4 7.09492V17.0936C4 17.9098 4.32421 18.6925 4.90131 19.2696C5.47842 19.8467 6.26114 20.1709 7.07728 20.1709H13.0271L15.0499 24.938C15.0499 24.938 15.1897 25.3523 15.5276 25.3523C15.8639 25.3523 16.0037 24.938 16.0037 24.938L18.0281 20.1709H23.9227C24.3268 20.1709 24.727 20.0913 25.1003 19.9367C25.4737 19.782 25.8129 19.5554 26.0987 19.2696C26.3844 18.9839 26.6111 18.6446 26.7658 18.2713C26.9204 17.8979 27 17.4978 27 17.0936V7.09492C27 6.6908 26.9204 6.29065 26.7658 5.91729C26.6111 5.54394 26.3844 5.20471 26.0987 4.91895C25.8129 4.6332 25.4737 4.40653 25.1003 4.25188C24.727 4.09723 24.3268 4.01764 23.9227 4.01764ZM11.2253 12.8563C11.2155 14.6841 9.32594 14.7361 9.32594 14.7361C9.11332 14.7356 8.90299 14.6922 8.70755 14.6084C8.51212 14.5247 8.33561 14.4023 8.18861 14.2487V14.5737H6.81245V8.90652C6.89856 8.91952 8.18861 8.90652 8.18861 8.90652V11.0772C8.51356 10.5248 9.44942 10.5345 9.44942 10.5345C11.4804 10.7214 11.2253 12.8563 11.2253 12.8563ZM13.6494 10.7051V14.5915H12.3074V10.7441C12.3074 10.2209 11.6575 10.0747 11.6575 10.0747V8.71805C13.8038 8.80578 13.6494 10.7051 13.6494 10.7051ZM16.842 14.7394C15.5942 14.7394 14.5836 13.8084 14.5836 12.6597C14.5836 11.511 15.5942 10.5816 16.842 10.5816C18.0899 10.5816 19.1005 11.5126 19.1005 12.6597C19.1005 13.8068 18.0899 14.7394 16.842 14.7394ZM24.2217 14.7394C24.2217 14.7394 24.2412 16.7135 22.2346 16.7135H21.6253V15.4348H21.9925C21.9925 15.4348 22.8358 15.5128 22.826 14.213C22.826 14.213 22.6635 14.7394 21.4791 14.7394C21.4791 14.7394 19.8023 14.6192 19.8023 12.983V12.3624C19.8023 12.3624 19.8413 10.6661 21.6822 10.5313C21.9056 10.5159 22.1293 10.5556 22.3339 10.6468C22.5384 10.738 22.7174 10.878 22.8553 11.0544V10.6369H24.2217V14.7394Z" fill="#828C94"></path><path d="M22.0802 11.8278C21.9153 11.8278 21.7541 11.8767 21.617 11.9684C21.4799 12.0601 21.3731 12.1903 21.31 12.3427C21.247 12.4951 21.2306 12.6628 21.2629 12.8245C21.2952 12.9862 21.3747 13.1348 21.4914 13.2513C21.6082 13.3678 21.7568 13.447 21.9186 13.479C22.0804 13.511 22.248 13.4942 22.4003 13.4309C22.5526 13.3676 22.6827 13.2605 22.774 13.1232C22.8654 12.9859 22.914 12.8246 22.9137 12.6597C22.9133 12.4389 22.8253 12.2273 22.669 12.0714C22.5128 11.9154 22.301 11.8278 22.0802 11.8278Z" fill="#828C94"></path></svg></a><a href="https://naver.me/51ckkDZh" target="_blank" rel="noreferrer" aria-label="오늘의집 NaverPost 링크 버튼" ><svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" ><path d="M8.5 5H21.5V18H8.5V5ZM15.9535 8.99998V11.5228L14.054 8.99998H12V14H14.0469V11.4772L15.9468 14H18V8.99998H15.9535Z" fill="#828C94"></path><path d="M8.5 19H21.5L19.0623 22H10.9373L8.5 19Z" fill="#828C94"></path><path d="M11.7497 23H18.2497L14.9995 27L11.7497 23Z" fill="#828C94"></path></svg></a></div>
+            <p style="font-size: 10px; line-height: 14px; padding-top: 2px;">
+                <a style="display: inline-block; margin-right: 10px;">브랜드</a>
+                <a style="display: inline-block; margin-right: 10px;">스토리</a>
+                <a style="display: inline-block; margin-right: 10px;">회사소개</a>
+                <a style="display: inline-block; margin-right: 10px;">채용정보</a>
+                <a style="display: inline-block; margin-right: 10px;">이용약관</a>
+                <a style="display: inline-block; margin-right: 10px; color: #2F3438; font-weight: 700;">개인정보처리방침</a>
+                <a style="display: inline-block; margin-right: 10px;">공지사항</a>
+                <a style="display: inline-block; margin-right: 10px;">고객센터</a>
+                <a style="display: inline-block; margin-right: 10px;">고객의 소리</a>
+                <a style="display: inline-block; margin-right: 10px;">전문가 등록</a>
+                <a style="display: inline-block; margin-right: 10px;">사업자 구매회원</a>
+                <a style="display: inline-block; margin-right: 10px;">제휴/광고 문의</a>
+                <a style="display: inline-block; margin-right: 10px;">입점신청 문의</a>
+                <a style="display: inline-block; margin-right: 10px;">안전거래센터</a>
+                <a style="display: inline-block; margin-right: 10px;">상품광고 소개</a>
+            </p>
+
+            <div style="font-size: 10px; line-height: 14px; margin-top: 10px; color: #828C94;">
+                <div style="display: inline-block; margin-right: 8px; line-height: 16px;">상호명 :(주)버킷플레이스</div>
+                <div style="display: inline-block; margin-right: 8px; line-height: 16px;">이메일
+                    <a href="mailto:cs@bucketplace.net" style="text-decoration: none; color: #828C94;">:(고객문의) cs@bucketplace.net</a>
+                    <a href="mailto:contact@bucketplace.net" style="text-decoration: none; color: #828C94;">(제휴문의) contact@bucketplace.net</a>
+                </div>
+                <div style="display: inline-block; margin-right: 8px; line-height: 16px;">대표이사 :이승재</div>
+                <div style="display: inline-block; margin-right: 8px; line-height: 16px;">사업자등록번호 :119-86-91245</div>
+                <div style="display: inline-block; margin-right: 8px; line-height: 16px;"> 통신판매업신고번호 :
+                    <span>제2018-서울서초-0580호
+                        <a style="text-decoration: none;color: #828C94;" target="_blank" href="https://www.ftc.go.kr/bizCommPop.do?wrkr_no=1198691245" rel="noreferrer">사업자정보확인</a>
+                    </span>
+                </div>
+                <div style="display: inline-block; margin-right: 8px; line-height: 16px;">주소 :
+                    <address style="display: inline-block; margin-right: 8px; line-height: 16px;">서울 서초구 서초대로74길 4 삼성생명서초타워 25층, 27층</address>
+                </div>
+                <div style="display: inline-block; margin-right: 8px; line-height: 16px;">우리은행 채무지급보증안내 :
+                    <span>(주)버킷플레이스는 고객님이 현금결제한 금액에 대해 우리은행과 채무지급보증 계약을 체결하여 안전거래를 보장하고 있습니다.
+                        <a target="_blank" href="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/164759360154374141.png?w=1440" rel="noreferrer" style="text-decoration: none; color: #828C94;">서비스가입사실확인</a>
+                    </span>
+                </div>
+            </div>
+            <div style="margin-right: 8px; line-height: 16px; font-size: 10px; color: #828C94; margin-top: 10px; white-space: pre-wrap;">오늘의집은 개별 판매자가 상품을 판매하는 오픈마켓이며 (주)버킷플레이스는 통신판매중개자로 거래 당사자가 아니므로, 판매자가 등록한 상품정보 및 거래 등에 대해 일체 책임을 지지 않습니다.
+단 ㈜버킷플레이스가 판매자로 등록 판매한 상품의 경우는 판매자로서 책임을 부담합니다.</div>
+            <p style="font-size: 10px; line-height: 14px; margin-top: 10px;">Copyright 2014. bucketplace, Co., Ltd. All rights reserved</p>
+            <div style="margin-top: 26px; display: flex; gap: 20px;">
+                <div style="display: flex; gap: 8px;">
+                    <img src="https://assets.ohou.se/design-system/8f5b2c2e98ea1196.png" width="32" height="32" alt="isms 인증 마크">
+                    <div>ISMS 정보보호 관리체계 인증 <br> 2021. 09. 08 ~ 2024. 09. 07</div>
+                </div>
+                <div>
+                    <img src="https://assets.ohou.se/design-system/d5fb816a58bb6a06.png" width="32" height="32" alt="iso27001 인증 마크">
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
